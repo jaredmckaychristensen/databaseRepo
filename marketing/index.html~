@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Marketing Management JJ Shipping Dashboard</h1>
+
+<h2>Filter by salary range -> Highest to Lowest</h2>
+
+<form action="whatever we want our python file to be">
+  <select name="cars">
+    <option value="volvo">Volvo</option>
+    <option value="saab">Saab</option>
+    <option value="fiat">Fiat</option>
+    <option value="audi">Audi</option>
+  </select>
+  <br><br>
+  <input type="submit">
+</form>
+
+<br><br>
+
+<h2>Filter by age -> Highest to Lowest</h2>
+
+<form action="whatever we want our python file to be">
+  <select name="cars">
+    <option value="volvo">Volvo</option>
+    <option value="saab">Saab</option>
+    <option value="fiat">Fiat</option>
+    <option value="audi">Audi</option>
+  </select>
+  <br><br>
+  <input type="submit">
+</form>
+
+<br><br>
+
+<h2>Filter employeeID -> Highest to Lowest</h2>
+
+<form action="salary.py" method="POST">
+  <select name="cars">
+    <option value="volvo">Volvo</option>
+    <option value="saab">Saab</option>
+    <option value="fiat">Fiat</option>
+    <option value="audi">Audi</option>
+  </select>
+  <br><br>
+  <input type="submit">
+</form>
+
+
+
+</body>
+</html>
+
+
