@@ -71,22 +71,22 @@
 
           <div class="row placeholders">
             <div class="col-xs-6 col-sm-3 placeholder">
-              <img src = "airplane-shipping.jpeg" class="img-responsive">
+              <img src = "/static/airplane-shipping.jpeg" class="img-responsive">
               <h4>Effective</h4>
               <span class="text-muted"></span>
             </div>
             <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="ocean-air-freight.jpg" class="img-responsive">
+              <img src="/static/ocean-air-freight.jpg" class="img-responsive">
               <h4>Efficient</h4>
               <span class="text-muted"></span>
             </div>
             <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="energy-aware.jpeg" class="img-responsive">
+              <img src="/static/energy-aware.jpeg" class="img-responsive">
               <h4>Energy-Aware</h4>
               <span class="text-muted"></span>
             </div>
             <div class="col-xs-6 col-sm-3 placeholder">
-              <img src="piggy-bank.jpeg" class="img-responsive">
+              <img src="/static/piggy-bank.jpeg" class="img-responsive">
               <h4>Economical</h4>
               <span class="text-muted"></span>
             </div>
@@ -94,6 +94,28 @@
 
           <h2 class="sub-header">Shippping Facilities</h2>
           <div class="table-responsive">
+		<table class="table table-striped">
+		<thead>
+                <tr>
+                  <th>facilityId</th>
+                  <th>facilityName</th>
+                  <th>facilityLocation</th>
+                  <th>facilityManager</th>
+                  <th>facilityCurrentCost</th>
+                </tr>
+              </thead>
+              <tbody>
+		{% for item in data %}
+			
+                <tr>
+                  <td>{{item[0]}}</td>
+                  <td>{{item[1]}}</td>
+                  <td>{{item[2]}}</td>
+                  <td>dolor</td>
+                  <td>sit</td>
+                </tr>
+		{% endfor %}
+		</table>
             <table class="table table-striped">
               <thead>
                 <tr>
