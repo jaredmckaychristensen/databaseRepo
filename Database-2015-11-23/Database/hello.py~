@@ -53,17 +53,18 @@ def hello_earth():
 
 @app.route('/managers', methods=['GET', 'POST'])
 def hello_joseph():
-	print 'joseph'
 	#conn = mysql.connect()
 	#cursor =conn.cursor()
 	if request.method == 'POST':
-		print 'you made it into post'
-		if request.form['submit'] == 'bingo':
+		if request.form['submit'] == 'Add a Facility':
 			print 'you made it past add a facility part'
             		#cursor = db.cursor()
 			# execute SQL query using execute() method.
 			cursor.execute("INSERT INTO Facilities VALUES(7, 'Alpine-Main', 'Alpine', 'Santa Claus', 65000)")
 
+		elif request.form['submit'] == 'Delete a Facility':
+			print 'You made it right before delete'
+			cursor.execute('DELETE FROM Facilities WHERE facilityName = "Alpine-Main"') 
 			# Fetch a single row using fetchone() method.
 			#data = cursor.fetchone()
 			print "Success!"

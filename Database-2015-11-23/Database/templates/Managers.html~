@@ -94,10 +94,12 @@
 
           <h2 class="sub-header">Shippping Facilities</h2>
 	<div>
-	<form method = 'post' name = 'bingo'>
-	<button type="submit" name = 'bingo' formmethod = "POST" class="btn btn-primary" formaction = '#' value="Add a Facility"></button>
-          <div class="table-responsive">
+	<form method = 'post' name = 'submit'>
+	<button type="submit" name = 'submit' formmethod = "POST" class="btn btn-primary" formaction = '#' value="Add a Facility"> Add a Facility</button>
+	<button type="submit" name = 'submit' formmethod = "POST" class="btn btn-danger" formaction = '#' value="Delete a Facility"></button>
+	<button type="submit" name = 'submit' formmethod = "POST" class="btn btn-info" formaction = '#' value="Update a Facility"></button>
 	</form>
+          <div class="table-responsive">
 	</div>
 		<table class="table table-striped">
 		<thead>

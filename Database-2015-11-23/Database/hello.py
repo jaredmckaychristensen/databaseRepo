@@ -62,10 +62,15 @@ def hello_joseph():
 			# execute SQL query using execute() method.
 			cursor.execute("INSERT INTO Facilities VALUES(7, 'Alpine-Main', 'Alpine', 'Santa Claus', 65000)")
 
+		elif request.form['submit'] == 'Delete a Facility':
+			print 'You made it right before delete'
+			cursor.execute('DELETE FROM Facilities WHERE facilityName = "Alpine-Main"') 
 			# Fetch a single row using fetchone() method.
 			#data = cursor.fetchone()
 			print "Success!"
 			# disconnect from server
+		elif request.form['submit'] == 'Update a Facility':
+			cursor.execute('UPDATE Facilities SET facilityManager = "JARED THE BOSS MAN" WHERE facilityCurrentCost > 25000')
 	
 	cursor.execute("SELECT * from Facilities")
 	data = cursor.fetchall()
