@@ -3,14 +3,17 @@ from flaskext.mysql import MySQL
 from flask import Markup
 
 app = Flask(__name__)
+
 mysql = MySQL()
 app.config['MYSQL_DATABASE_USER'] = 'root'
 app.config['MYSQL_DATABASE_PASSWORD'] = '350-databases'
 app.config['MYSQL_DATABASE_DB'] = 'marketing'
 app.config['MYSQL_DATABASE_HOST'] = 'localhost'
 mysql.init_app(app)
+
 conn = mysql.connect()
 cursor = conn.cursor()
+
 
 @app.route('/')
 def hello_world():
@@ -18,7 +21,8 @@ def hello_world():
 
 @app.route('/signin', methods=['GET','POST'])
 def hello_earth():
-		#message = Markup("<h1>TEST</h1>")
+	
+	#message = Markup("<h1>TEST</h1>")
 	#flash(message)
 	if request.method == 'POST':
 		
@@ -47,14 +51,11 @@ def hello_earth():
 		print "bad login attempt"
     		return render_template('signin.html', error=error)
 	return render_template('signin.html')
-	
-
 
 
 @app.route('/managers', methods=['GET', 'POST'])
 def hello_joseph():
-	#conn = mysql.connect()
-	#cursor =conn.cursor()
+
 	if request.method == 'POST':
 		if request.form['submit'] == 'Add a Facility':
 			print 'you made it past add a facility part'

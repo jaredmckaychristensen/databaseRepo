@@ -3,14 +3,14 @@ from flaskext.mysql import MySQL
 from flask import Markup
 
 app = Flask(__name__)
+"""
 mysql = MySQL()
 app.config['MYSQL_DATABASE_USER'] = 'root'
 app.config['MYSQL_DATABASE_PASSWORD'] = '350-databases'
 app.config['MYSQL_DATABASE_DB'] = 'marketing'
 app.config['MYSQL_DATABASE_HOST'] = 'localhost'
 mysql.init_app(app)
-conn = mysql.connect()
-cursor = conn.cursor()
+"""
 
 @app.route('/')
 def hello_world():
@@ -18,7 +18,11 @@ def hello_world():
 
 @app.route('/signin', methods=['GET','POST'])
 def hello_earth():
-		#message = Markup("<h1>TEST</h1>")
+	# Open database connection
+	db = MySQLdb.connect("localhost","root","350-databases","marketing" )
+	cursor = db.cursor()
+
+	#message = Markup("<h1>TEST</h1>")
 	#flash(message)
 	if request.method == 'POST':
 		
@@ -47,14 +51,13 @@ def hello_earth():
 		print "bad login attempt"
     		return render_template('signin.html', error=error)
 	return render_template('signin.html')
+	db.close()
 	
-
-
 
 @app.route('/managers', methods=['GET', 'POST'])
 def hello_joseph():
-	#conn = mysql.connect()
-	#cursor =conn.cursor()
+	db = MySQLdb.connect("localhost","root","350-databases","marketing" )
+	cursor = db.cursor()
 	if request.method == 'POST':
 		if request.form['submit'] == 'Add a Facility':
 			print 'you made it past add a facility part'
@@ -69,11 +72,14 @@ def hello_joseph():
 			#data = cursor.fetchone()
 			print "Success!"
 			# disconnect from server
+		elif request.form['submit'] == 'Update a Facility':
+			cursor.execute('UPDATE Facilities SET facilityManager = "JARED THE BOSS MAN" WHERE facilityCurrentCost > 25000')
 	
 	cursor.execute("SELECT * from Facilities")
 	data = cursor.fetchall()
 
 	return render_template('Managers.html',data=data)
+	db.close()
 
 if __name__ == '__main__':
     app.run()
