@@ -10,7 +10,7 @@ app.config['MYSQL_DATABASE_DB'] = 'marketing'
 app.config['MYSQL_DATABASE_HOST'] = 'localhost'
 mysql.init_app(app)
 conn = mysql.connect()
-cursor =conn.cursor()
+cursor = conn.cursor()
 
 @app.route('/')
 def hello_world():
@@ -51,15 +51,26 @@ def hello_earth():
 
 
 
-@app.route('/managers', methods=['GET'])
+@app.route('/managers', methods=['GET', 'POST'])
 def hello_joseph():
 	#conn = mysql.connect()
 	#cursor =conn.cursor()
+	if request.method == 'POST':
+		if request.form['submit'] == 'Add a Facility':
+			print 'you made it past add a facility part'
+            		#cursor = db.cursor()
+			# execute SQL query using execute() method.
+			cursor.execute("INSERT INTO Facilities VALUES(7, 'Alpine-Main', 'Alpine', 'Santa Claus', 65000)")
+
+			# Fetch a single row using fetchone() method.
+			#data = cursor.fetchone()
+			print "Success!"
+			# disconnect from server
+	
 	cursor.execute("SELECT * from Facilities")
 	data = cursor.fetchall()
 
 	return render_template('Managers.html',data=data)
-
 
 if __name__ == '__main__':
     app.run()
