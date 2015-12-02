@@ -43,7 +43,8 @@ def hello_earth():
                     			error = "Invalid Credential"
 		else:
             		error = "Invalid Credential"
-    		return render_template('Managers.html', error=error)
+		print "bad login attempt"
+    		return render_template('signin.html', error=error)
 	return render_template('signin.html')
 	
 
@@ -53,7 +54,7 @@ def hello_earth():
 def hello_joseph():
 	#conn = mysql.connect()
 	#cursor =conn.cursor()
-	#cursor.execute("SELECT * from Marketing")
+	cursor.execute("SELECT * from Facilities")
 	data = cursor.fetchall()
 
 	return render_template('Managers.html',data=data)
