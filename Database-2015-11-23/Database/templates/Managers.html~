@@ -20,6 +20,20 @@
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
     <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+	<script type="text/javascript">
+    		function show_Facilities() {
+			console.out("test");
+			document.getElementById("Facilities").style.display = 'inline';
+			document.getElementById("Personnel").style.display = 'none';
+        		return true;
+    		}
+		function show_Personnel() {
+			console.log("test1");
+			document.getElementById('Facilities').style.display = "none";
+			document.getElementById("Personnel").style.display = 'inline';
+        		return true;
+    		}
+	</script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -58,11 +72,11 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
-          <ul class="nav nav-sidebar">
-            <li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
-            <li><a href="#">Reports</a></li>
-            <li><a href="#">Analytics</a></li>
-            <li><a href="#">Export</a></li>
+           <ul class="nav nav-sidebar">
+            <li class="active"><a href="#" onclick= "show_Facilities()">Facilities <span class="sr-only">(current)</span></a></li>
+            <li><a href="#" onclick="show_Personnel()">Personnel</a></li>
+            <li><a href="#">add here</a></li>
+            <li><a href="#">add here</a></li>
           </ul>
 
         </div>
@@ -96,10 +110,10 @@
 	<div>
 	<form method = 'post' name = 'submit'>
 	<button type="submit" name = 'submit' formmethod = "POST" class="btn btn-primary" formaction = '#' value="Add a Facility"> Add a Facility</button>
-	<button type="submit" name = 'submit' formmethod = "POST" class="btn btn-danger" formaction = '#' value="Delete a Facility"></button>
-	<button type="submit" name = 'submit' formmethod = "POST" class="btn btn-info" formaction = '#' value="Update a Facility"></button>
+	<button type="submit" name = 'submit' formmethod = "POST" class="btn btn-danger" formaction = '#' value="Delete a Facility">Delete a Facility</button>
+	<button type="submit" name = 'submit' formmethod = "POST" class="btn btn-info" formaction = '#' value="Update a Facility"> Update a Facility's Information</button>
 	</form>
-          <div class="table-responsive">
+          <div class="table-responsive" id="Facilities">
 	</div>
 		<table class="table table-striped">
 		<thead>
@@ -120,6 +134,40 @@
                   <td>{{item[2]}}</td>
                   <td>{{item[3]}}</td>
                   <td>{{item[4]}}</td>
+                </tr>
+		{% endfor %}
+		</table>
+          </div>
+	<div class="table-responsive" id="Personnel" style="display:none">
+		<table class="table table-striped">
+		<thead>
+                <tr>
+                  <th>id</th>
+                  <th>employeeID</th>
+                  <th>Address</th>
+                  <th>phoneNumber</th>
+                  <th>Email</th>
+		  <th>lastName</th>
+                  <th>firstName</th>
+                  <th>Birthdate</th>
+		  <th>Age</th>
+                  <th>Salary</th>
+                </tr>
+              </thead>
+              <tbody>
+		{% for item in personnel %}
+			
+                <tr>
+                  <td>{{item[0]}}</td>
+                  <td>{{item[1]}}</td>
+                  <td>{{item[2]}}</td>
+                  <td>{{item[3]}}</td>
+                  <td>{{item[4]}}</td>
+	          <td>{{item[5]}}</td>
+                  <td>{{item[6]}}</td>
+                  <td>{{item[7]}}</td>
+                  <td>{{item[8]}}</td>
+                  <td>{{item[9]}}</td>
                 </tr>
 		{% endfor %}
 		</table>

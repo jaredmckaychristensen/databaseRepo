@@ -75,8 +75,10 @@ def hello_joseph():
 	
 	cursor.execute("SELECT * from Facilities")
 	data = cursor.fetchall()
+	cursor.execute("SELECT * from Personnel")
+	personnel = cursor.fetchall()
 
-	return render_template('Managers.html',data=data)
+	return render_template('Managers.html',data=data,personnel=personnel)
 
 if __name__ == '__main__':
     app.run()
