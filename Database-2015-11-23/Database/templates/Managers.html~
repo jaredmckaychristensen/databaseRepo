@@ -27,8 +27,8 @@
 			document.getElementById('buttons2').style.display = 'none';
 			document.getElementById('Facilities').style.display = 'inline';
 			document.getElementById('buttons1').style.display = 'inline';
-			
-			
+			document.getElementById('menuitem1').className = 'active';
+			document.getElementById('menuitem2').className = 'inactive'
         		return true;
     		}
 		function show_Personnel() {
@@ -38,6 +38,7 @@
 			document.getElementById('Personnel').style.display = 'inline';
 			document.getElementById('buttons2').style.display = 'inline';
 			document.getElementById('menuitem2').className = 'active';
+			document.getElementById('menuitem1').className = 'inactive';
         		return true;
     		}
 	</script>

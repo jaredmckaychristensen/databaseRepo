@@ -19,6 +19,12 @@ cursor = conn.cursor()
 def hello_world():
     	return render_template('index.html')
 
+@app.route('/employee')
+def hellow_Tew():
+	cursor.execute("SELECT * from EmployeeInfo")
+	EmployeeInfo = cursor.fetchall()
+	return render_template('employee.html', EmployeeInfo=EmployeeInfo)
+
 @app.route('/signin', methods=['GET','POST'])
 def hello_earth():
 	

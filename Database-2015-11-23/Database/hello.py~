@@ -20,7 +20,7 @@ def hello_world():
     	return render_template('index.html')
 
 @app.route('/employee')
-def hello_Tew():
+def hellow_Tew():
 	return render_template('employee.html')
 
 @app.route('/signin', methods=['GET','POST'])
@@ -77,7 +77,6 @@ def hello_joseph():
 		elif request.form['submit'] == 'Update a Facility':
 			cursor.execute('UPDATE Facilities SET facilityManager = "JARED THE BOSS MAN" WHERE facilityCurrentCost > 25000')
 		elif request.form['submit'] == 'Sort by Salary':
-<<<<<<< HEAD
 			print 'you made it past sort by salary part'
             		#cursor = db.cursor()
 			# execute SQL query using execute() method.
@@ -85,9 +84,6 @@ def hello_joseph():
 			personnel = cursor.fetchall()
 			sort_personnel = True	
 
-=======
-			cursor.execute('SELECT * FROM Personnel ORDER_BY Salary DESC')
->>>>>>> 89249b344d25a6592b5a7404b9794d939d4bf69a
 	
 	cursor.execute("SELECT * from Facilities")
 	data = cursor.fetchall()
