@@ -55,7 +55,7 @@ def hello_earth():
 
 @app.route('/managers', methods=['GET', 'POST'])
 def hello_joseph():
-
+	sort_personnel = False
 	if request.method == 'POST':
 		if request.form['submit'] == 'Add a Facility':
 			print 'you made it past add a facility part'
@@ -72,11 +72,20 @@ def hello_joseph():
 			# disconnect from server
 		elif request.form['submit'] == 'Update a Facility':
 			cursor.execute('UPDATE Facilities SET facilityManager = "JARED THE BOSS MAN" WHERE facilityCurrentCost > 25000')
+		elif request.form['submit'] == 'Sort by Salary':
+			print 'you made it past sort by salary part'
+            		#cursor = db.cursor()
+			# execute SQL query using execute() method.
+			cursor.execute("SELECT * from Personnel ORDER BY Salary DESC")	
+			personnel = cursor.fetchall()
+			sort_personnel = True	
+
 	
 	cursor.execute("SELECT * from Facilities")
 	data = cursor.fetchall()
-	cursor.execute("SELECT * from Personnel")
-	personnel = cursor.fetchall()
+	if sort_personnel == False:
+		cursor.execute("SELECT * from Personnel")
+		personnel = cursor.fetchall()
 
 	return render_template('Managers.html',data=data,personnel=personnel)
 

@@ -23,14 +23,21 @@
 	<script type="text/javascript">
     		function show_Facilities() {
 			console.out("test");
-			document.getElementById("Facilities").style.display = 'inline';
-			document.getElementById("Personnel").style.display = 'none';
+			document.getElementById('Personnel').style.display = 'none';
+			document.getElementById('buttons2').style.display = 'none';
+			document.getElementById('Facilities').style.display = 'inline';
+			document.getElementById('buttons1').style.display = 'inline';
+			
+			
         		return true;
     		}
 		function show_Personnel() {
 			console.log("test1");
-			document.getElementById('Facilities').style.display = "none";
-			document.getElementById("Personnel").style.display = 'inline';
+			document.getElementById('Facilities').style.display = 'none';
+			document.getElementById('buttons1').style.display = 'none';
+			document.getElementById('Personnel').style.display = 'inline';
+			document.getElementById('buttons2').style.display = 'inline';
+			document.getElementById('menuitem2').className = 'active';
         		return true;
     		}
 	</script>
@@ -73,10 +80,9 @@
       <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
            <ul class="nav nav-sidebar">
-            <li class="active"><a href="#" onclick= "show_Facilities()">Facilities <span class="sr-only">(current)</span></a></li>
-            <li><a href="#" onclick="show_Personnel()">Personnel</a></li>
-            <li><a href="#">add here</a></li>
-            <li><a href="#">add here</a></li>
+            <li class="active" id="menuitem1"><a href="#" onclick= "show_Facilities()">Facilities <span class="sr-only">(current)</span></a></li>
+            <li id="menuitem2"><a href="#" onclick="show_Personnel()">Personnel</a></li>
+          
           </ul>
 
         </div>
@@ -108,13 +114,24 @@
 
           <h2 class="sub-header">Shippping Facilities</h2>
 	<div>
+	<div id="buttons1">
 	<form method = 'post' name = 'submit'>
+	
 	<button type="submit" name = 'submit' formmethod = "POST" class="btn btn-primary" formaction = '#' value="Add a Facility"> Add a Facility</button>
 	<button type="submit" name = 'submit' formmethod = "POST" class="btn btn-danger" formaction = '#' value="Delete a Facility">Delete a Facility</button>
 	<button type="submit" name = 'submit' formmethod = "POST" class="btn btn-info" formaction = '#' value="Update a Facility"> Update a Facility's Information</button>
 	</form>
-          <div class="table-responsive" id="Facilities">
 	</div>
+	<div id="buttons2" style="display:none">
+	<form method = 'post' name = 'submit'>
+	<button type="submit" name = 'submit' formmethod = "POST" class="btn btn-primary" formaction = '' value="Sort by Salary"> Sort by Salary</button>
+	
+	
+	</form>
+	</div>
+	</div>
+          <div class="table-responsive" id="Facilities">
+	
 		<table class="table table-striped">
 		<thead>
                 <tr>
