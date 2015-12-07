@@ -19,6 +19,10 @@ cursor = conn.cursor()
 def hello_world():
     	return render_template('index.html')
 
+@app.route('/employee')
+def hello_Tew():
+	return render_template('employee.html')
+
 @app.route('/signin', methods=['GET','POST'])
 def hello_earth():
 	
@@ -72,6 +76,8 @@ def hello_joseph():
 			# disconnect from server
 		elif request.form['submit'] == 'Update a Facility':
 			cursor.execute('UPDATE Facilities SET facilityManager = "JARED THE BOSS MAN" WHERE facilityCurrentCost > 25000')
+		elif request.form['submit'] == 'Sort by Salary':
+			cursor.execute('SELECT * FROM Personnel ORDER_BY Salary DESC')
 	
 	cursor.execute("SELECT * from Facilities")
 	data = cursor.fetchall()
